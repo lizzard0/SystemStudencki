@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS zgloszenie;
+DROP TABLE IF EXISTS zgloszenie; 
 DROP TABLE IF EXISTS wiadomosc;
 DROP TABLE IF EXISTS rezerwacja_ksiazki;
 DROP TABLE IF EXISTS wypozyczenie;
@@ -317,3 +317,4 @@ CREATE INDEX idx_grupa_przedmiot ON grupa_zajeciowa(przedmiot_id);
 CREATE INDEX idx_material_przedmiot ON material_dydaktyczny(przedmiot_id);
 CREATE INDEX idx_zajecie_plan ON zajecie_w_planie(plan_id);
 CREATE INDEX idx_zajecie_grupa ON zajecie_w_planie(grupa_id);
+
