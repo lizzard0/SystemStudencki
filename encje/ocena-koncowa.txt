@@ -1,0 +1,20 @@
+@Entity
+@Table(name = "ocena_koncowa")
+public class OcenaKoncowa {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    public OcenaKoncowa() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}

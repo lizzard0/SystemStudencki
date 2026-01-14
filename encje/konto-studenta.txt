@@ -1,0 +1,20 @@
+@Entity
+@Table(name = "konto_studenta")
+public class KontoStudenta {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    public KontoStudenta() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}

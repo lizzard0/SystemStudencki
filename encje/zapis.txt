@@ -1,0 +1,20 @@
+@Entity
+@Table(name = "zapis_na_przedmiot")
+public class ZapisNaPrzedmiot {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    public ZapisNaPrzedmiot() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}

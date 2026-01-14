@@ -1,0 +1,20 @@
+@Entity
+@Table(name = "przedmiot")
+public class Przedmiot {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    public Przedmiot() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}
