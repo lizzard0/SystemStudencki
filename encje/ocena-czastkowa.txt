@@ -2,19 +2,95 @@
 @Table(name = "ocena_czastkowa")
 public class OcenaCzastkowa {
 
-    @Id
+     public OcenaCzastkowa() {
+    }
+
+    @Czastkowa_id
     @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "czastkowa_id")
+    private Long czastkowa_id;
 
-    public OcenaCzastkowa() {
+    public Long getCzastkowa_id() {
+        return czastkowa_id;
     }
 
-    public Long getId() {
-        return id;
+    public void setCzastkowa_id(Long czastkowa_id) {
+        this.czastkowa_id = czastkowa_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Ocena_id
+    @Column(name = "ocena_id")
+    private Long ocena_id;
+
+    public Long getOcena_id() {
+        return ocena_id;
+    }
+
+    public void setCzastkowa_id(Long czastkowa_id) {
+        this.czastkowa_id = czastkowa_id;
+    }
+
+    public void setCzastkowa_id(Long czastkowa_id) {
+        this.czastkowa_id = czastkowa_id;
+    }
+
+    @Nazwa
+    @Column(name = "nazwa")
+    private String nazwa;
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public void setNazwa(String nazwa) {
+        this.nazwa = nazwa;
+    }
+
+    @Wartosc
+    @Column(name = "wartosc")
+    private float wartosc;
+
+    public Date getWartosc() {
+        return wartosc;
+    }
+   
+    public void setKwota(float kwota) {
+        this.wartosc = wartosc;
+    }
+
+    @Waga
+    @Column(name = "waga")
+    private float waga;
+
+    public Date getWaga() {
+        return waga;
+    }
+   
+    public void setWaga(Float waga) {
+        this.waga = waga;
+    }
+
+    @Data_wpisu
+    @Column(name = "data_wpisu")
+    Date data_wpisu = new Date();
+
+    public Date getData_wpisu() {
+        return data_wpisu;
+    }
+
+    public void setData_wpisu(Date data_wpisu) {
+        this.data_wpisu = data_wpisu;
+    }
+
+    @Prowadzacy_id
+    @Column(name = "prowadzacy_id")
+    private Long prowadzacy_id;
+
+    public Long getProwadzacy_id() {
+        return prowadzacy_id;
+    }
+
+    public void setProwadzacy_id(Long prowadzacy_id) {
+        this.prowadzacy_id = prowadzacy_id;
     }
 }
