@@ -2,19 +2,81 @@
 @Table(name = "przedmiot")
 public class Przedmiot {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
-
     public Przedmiot() {
     }
 
-    public Long getId() {
-        return id;
+    @Przedmiot_id
+    @GeneratedValue
+    @Column(name = "przedmiot_id")
+    private Long przedmiot_id;
+
+    public Long getPrzedmiot_id() {
+        return przedmiot_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPrzedmiot_id(Long przedmiot_id) {
+        this.przedmiot_id = przedmiot_id;
     }
+
+    @Kod
+    @Column(name = "kod")
+    private Long kod;
+
+    public Long getkod() {
+        return kod;
+    }
+
+    public void setKod(Long kod) {
+        this.kod = kod;
+    }
+
+    @Nazwa
+    @Column(name = "nazwa")
+    private String nazwa;
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public void setNazwa(String nazwa) {
+        this.nazwa = nazwa;
+    }
+
+    @Ects
+    @Column(name = "ects")
+    private Long ects;
+
+    public Long getEcts() {
+        return ects;
+    }
+
+    public void setEcts(Long ects) {
+        this.ects = ects;
+    }
+
+    @Prowadzacy_id
+    @Column(name = "prowadzacy_id")
+    private Long prowadzacy_id;
+
+    public Long getProwadzacy_id() {
+        return prowadzacy_id;
+    }
+
+    public void setProwadzacy_id(Long prowadzacy_id) {
+        this.prowadzacy_id = prowadzacy_id;
+    }
+
+    @Kategoria_id
+    @Column(name = "kategoria_id")
+    private Long kategoria_id;
+
+    public Long getKategoria_id() {
+        return kategoria_id;
+    }
+
+    public void setKategoria_id(Long kategoria_id) {
+        this.kategoria_id = kategoria_id;
+    }
+
+    
 }
