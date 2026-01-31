@@ -1,0 +1,20 @@
+@Entity
+@Table(name = "faktura")
+public class Faktura {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    public Faktura() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}

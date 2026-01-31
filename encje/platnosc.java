@@ -1,0 +1,70 @@
+@Entity
+@Table(name = "platnosc")
+public class Platnosc {
+
+    public Platnosc() {
+    }
+
+    @Platnosc_id
+    @GeneratedValue
+    @Column(name = "platnosc_id")
+    private Long platnosc_id;
+
+    public Long getPlatnosc_id() {
+        return platnosc_id;
+    }
+
+    public void setPlatnosc_id(Long platnosc_id) {
+        this.platnosc_id = platnosc_id;
+    }
+
+
+    @Faktura_id
+    @Column(name = "faktura_id")
+    private Long faktura_id;
+
+    public Long getFaktura_id() {
+        return faktura_id;
+    }
+
+    public void setFaktura_id(Long faktura_id) {
+        this.faktura_id = faktura_id;
+    }
+
+    @Kwota
+    @Column(name = "kwota")
+    private float kwota;
+
+    public Float getKwota() {
+        return kwota;
+    }
+
+    public void setKwota(Float kwota) {
+        this.kwota = kwota;
+    }
+
+    @Data_platnosci
+    @Column(name = "data_platnosci")
+    Date data_platnosci = new Date();
+
+    public Date getData_platnosci() {
+        return data_platnosci;
+    }
+
+    public void setData_platnoscia(Date data_platnosci) {
+        this.data_platnosci = data_platnosci;
+    }
+
+    @Identyfikator_transakcji
+    @Column(name = "identyfikator_transakcji")
+    private Long identyfikator_transakcji;
+
+    public Long getIdentyfikator_transakcji() {
+        return identyfikator_transakcji;
+    }
+
+    public void setIdentyfikator_transakcji(Long identyfikator_transakcji) {
+        this.identyfikator_transakcji = identyfikator_transakcji;
+    }
+}
+

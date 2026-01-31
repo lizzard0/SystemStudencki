@@ -1,0 +1,108 @@
+@Entity
+@Table(name = "ocena_koncowa")
+import java.util.*;
+public class OcenaKoncowa {
+
+     public OcenaKoncowa() {
+    }
+
+    @Ocena_id
+    @GeneratedValue
+    @Column(name = "ocena_id")
+    private Long ocena_id;
+
+    public Long getOcena_id() {
+        return ocena_id;
+    }
+
+    public void setCzastkowa_id(Long czastkowa_id) {
+        this.czastkowa_id = czastkowa_id;
+    }
+
+    @Student_id
+    @Column(name = "student_id")
+    private Long student_id;
+
+    public Long getStudent_id() {
+        return student_id;
+    }
+
+    public void setStudent_id(Long student_id) {
+        this.student_id = student_id;
+    }
+
+    @Przedmiot_id
+    @Column(name = "przedmiot_id")
+    private Long przedmiot_id;
+
+    public Long getrzedmiot_id() {
+        return przedmiot_id;
+    }
+
+    public void setrzedmiot_id(Long przedmiot_id) {
+        this.przedmiot_id = przedmiot_id;
+    }
+
+    @Ocena
+    @Column(name = "ocena")
+    private Long ocena;
+
+    public Long getOcena() {
+        return ocena;
+    }
+
+    public void setOcena(Long ocena) {
+        this.ocena = ocena;
+    }
+
+    @Ocena_slownie
+    @Column(name = "ocena_slownie")
+    private String ocena_slownie;
+
+    public String getOcena_slownie() {
+        return ocena_slownie;
+    }
+
+    public void setOcena_slownie(String ocena_slownie) {
+        this.ocena_slownie = ocena_slownie;
+    }
+
+    @Data_wpisu
+    @Column(name = "data_wpisu")
+    Date data_wpisu = new Date();
+
+    public Date getData_wpisu() {
+        return data_wpisu;
+    }
+
+    public void setData_wpisu(Date data_wpisu) {
+        this.data_wpisu = data_wpisu;
+    }
+
+    @Prowadzacy_wpisujacy
+    @Column(name = "prowadzacy_wpisujacy")
+    private String prowadzacy_wpisujacyd;
+
+    public String getProwadzacy_wpisujacy() {
+        return prowadzacy_wpisujacy;
+    }
+
+    public void setProwadzacy_wpisujacy(String prowadzacy_wpisujacy) {
+        this.prowadzacy_wpisujacy = prowadzacy_wpisujacy;
+    }
+
+    @Zaliczony
+    @Column(name = "zaliczony")
+    private Boolean zaliczony;
+
+    public Boolean getZaliczony() {
+        return zaliczony;
+    }
+
+    public void setZaliczony(Boolean zaliczony) {
+        this.zaliczony = zaliczony;
+    }
+
+    
+}
+
