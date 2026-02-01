@@ -75,7 +75,7 @@ public class ZapisNaPrzedmiot {
     @Column(name = "kwota")
     private float kwota;
 
-    public Date getKwota() {
+    public Float getKwota() {
         return kwota;
     }
 
