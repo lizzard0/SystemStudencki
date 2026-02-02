@@ -9,7 +9,7 @@
     <persistence-unit name="sosPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
-        <!-- Wszystkie Twoje encje - MUSISZ MIEC 10! -->
+        <!-- WSZYSTKIE Twoje encje -->
         <class>com.wsis.sos.entity.Student</class>
         <class>com.wsis.sos.entity.Przedmiot</class>
         <class>com.wsis.sos.entity.Zapis</class>
@@ -22,7 +22,7 @@
         <class>com.wsis.sos.entity.KontoStudenta</class>
         
         <properties>
-            <!-- DOSTOSUJ TE WARTOŚCI DO SWOJEJ BAZY DANYCH! -->
+            <!-- Konfiguracja bazy danych - DOSTOSUJ DO SIEBIE! -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/system_studencki"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
@@ -30,15 +30,9 @@
             
             <!-- Hibernate properties -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- create, update, validate, create-drop -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- create, update, validate -->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.use_sql_comments" value="true"/>
-            
-            <!-- Pool connection -->
-            <property name="hibernate.c3p0.min_size" value="5"/>
-            <property name="hibernate.c3p0.max_size" value="20"/>
-            <property name="hibernate.c3p0.timeout" value="300"/>
         </properties>
     </persistence-unit>
 </persistence>
