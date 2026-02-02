@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+               http://xmlns.jcp.org/xml/ns/persistence
+               http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    
+    <persistence-unit name="sosPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        <!-- WSZYSTKIE Twoje encje -->
+        <class>com.wsis.sos.entity.Student</class>
+        <class>com.wsis.sos.entity.Przedmiot</class>
+        <class>com.wsis.sos.entity.Zapis</class>
+        <class>com.wsis.sos.entity.Faktura</class>
+        <class>com.wsis.sos.entity.Ksiazka</class>
+        <class>com.wsis.sos.entity.Wypozyczenie</class>
+        <class>com.wsis.sos.entity.OcenaKoncowa</class>
+        <class>com.wsis.sos.entity.OcenaCzastkowa</class>
+        <class>com.wsis.sos.entity.Platnosc</class>
+        <class>com.wsis.sos.entity.KontoStudenta</class>
+        
+        <properties>
+            <!-- Konfiguracja bazy danych - DOSTOSUJ DO SIEBIE! -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/system_studencki"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            
+            <!-- Hibernate properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- create, update, validate -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
