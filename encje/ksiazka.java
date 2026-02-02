@@ -15,7 +15,7 @@ public class Ksiazka {
     }
 
     public void setKsiazka_id(Long ksiazka_id) {
-        this.ksiazka_id = ksiazka_i;
+        this.ksiazka_id = ksiazka_id;
     }
 
     @Isbn
