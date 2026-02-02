@@ -1,117 +1,117 @@
+package com.wsis.sos.entity;
+
+import javax.persistence.*;
+import java.util.Date;
+
 @Entity
-@Table(name = "zapis")
-public class Zapis {
+@Table(name = "faktura")
+public class Faktura {
 
-    public Zapis() {
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "faktura_id")
+    private Long fakturaId;
 
-    @Zapis_id
-    @GeneratedValue
-    @Column(name = "zapis_id")
-    private Long zapis_id;
+    @Column(name = "konto_id")
+    private Long kontoId;
 
+    @Column(name = "numer_faktury", length = 50)
+    private String numerFaktury;
 
-    public Long getId() {
-        return zapis_id;
-    }
+    @Temporal(TemporalType.DATE)
+    @Column(name = "data_wystawienia")
+    private Date dataWystawienia;
 
-    public void setZapis_id(Long zapis_id) {
-        this.zapis_id = zapis_id;
-    }
+    @Temporal(TemporalType.DATE)
+    @Column(name = "termin_platnosci")
+    private Date terminPlatnosci;
 
-    @Student_id
-    @Column(name = "student_id")
-    private Long student_id;
+    @Column(name = "kwota")
+    private Float kwota;
 
+    @Column(name = "tytul")
+    private String tytul;
 
-    public Long getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(Long student_id) {
-        this.student_id = student_id;
-    }
-
-
-    @Przedmiot_id
-    @Column(name = "przedmiot_id")
-    private Long przedmiot_id;
-
-    public Long getPrzedmiot_id() {
-        return przedmiot_id;
-    }
-
-    public void setPrzedmiot_id(Long przedmiot_id) {
-        this.przedmiot_id = przedmiot_id;
-    }
-
-
-    @Grupa_id
-    @Column(name = "grupa_id")
-    private Long grupa_id;
-
-    public Long getGrupa_id() {
-        return grupa_id;
-    }
-
-    public void setGrupa_id(Long grupa_id) {
-        this.grupa_id = grupa_id;
-    }
-
-
-    @Data_zapisu
-    @Column(name = "data_zapisu")
-    Date data_zapisu = new Date();
-
-    public Date getData_zapisu() {
-        return data_wzapisu;
-    }
-
-    public void setData_zapisu(Date data_zapisu) {
-        this.data_zapisu = data_zapisu;
-    }
-
-
-    @Status
     @Column(name = "status")
-    private String ststus;
+    private String status;
 
-    public String getStatus() {
-        return ststus;
+    // Konstruktory
+    public Faktura() {
     }
 
-    public void setStstus(String status) {
+    public Faktura(Long kontoId, String numerFaktury, Date dataWystawienia, 
+                   Date terminPlatnosci, Float kwota, String tytul, String status) {
+        this.kontoId = kontoId;
+        this.numerFaktury = numerFaktury;
+        this.dataWystawienia = dataWystawienia;
+        this.terminPlatnosci = terminPlatnosci;
+        this.kwota = kwota;
+        this.tytul = tytul;
         this.status = status;
     }
 
-
-    @Rok_akademicki
-    @Column(name = "rok_akademicki")
-    private Long rok_akademicki;
-
-    public Long getRok_akademicki() {
-        return rok_akademicki;
+    // Gettery i Settery
+    public Long getFakturaId() {
+        return fakturaId;
     }
 
-    public void setRok_akademicki(Long rok_akademicki) {
-        this.rok_akademicki = rok_akademicki;
+    public void setFakturaId(Long fakturaId) {
+        this.fakturaId = fakturaId;
     }
 
-
-    @Semestr
-    @Column(name = "semestr")
-    private Long semestr;
-
-    public Long getSemestr() {
-        return semestr;
+    public Long getKontoId() {
+        return kontoId;
     }
 
-    public void setSemestr(Long semestr) {
-        this.semestr = semestr;
+    public void setKontoId(Long kontoId) {
+        this.kontoId = kontoId;
     }
 
-    //UNIQUE (student_id, przedmiot_id, rok_akademicki, semestr),
-    //FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE,
-    //FOREIGN KEY (przedmiot_id) REFERENCES przedmiot(przedmiot_id) ON DELETE CASCADE,
-    //FOREIGN KEY (grupa_id) REFERENCES grupa_zajeciowa(grupa_id) ON DELETE CASCADE
+    public String getNumerFaktury() {
+        return numerFaktury;
+    }
+
+    public void setNumerFaktury(String numerFaktury) {
+        this.numerFaktury = numerFaktury;
+    }
+
+    public Date getDataWystawienia() {
+        return dataWystawienia;
+    }
+
+    public void setDataWystawienia(Date dataWystawienia) {
+        this.dataWystawienia = dataWystawienia;
+    }
+
+    public Date getTerminPlatnosci() {
+        return terminPlatnosci;
+    }
+
+    public void setTerminPlatnosci(Date terminPlatnosci) {
+        this.terminPlatnosci = terminPlatnosci;
+    }
+
+    public Float getKwota() {
+        return kwota;
+    }
+
+    public void setKwota(Float kwota) {
+        this.kwota = kwota;
+    }
+
+    public String getTytul() {
+        return tytul;
+    }
+
+    public void setTytul(String tytul) {
+        this.tytul = tytul;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

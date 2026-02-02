@@ -1,38 +1,71 @@
+package com.wsis.sos.entity;
+
+import javax.persistence.*;
+
 @Entity
 @Table(name = "ksiazka")
 public class Ksiazka {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ksiazka_id")
+    private Long ksiazkaId;
+
+    @Column(name = "isbn", unique = true)
+    private String isbn;
+
+    @Column(name = "tytul")
+    private String tytul;
+
+    @Column(name = "autor")
+    private String autor;
+
+    @Column(name = "wydawnictwo")
+    private String wydawnictwo;
+
+    @Column(name = "rok_wydania")
+    private Integer rokWydania;
+
+    @Column(name = "kategoria")
+    private String kategoria;
+
+    @Column(name = "sygnatura")
+    private String sygnatura;
+
+    @Column(name = "dostepna")
+    private Boolean dostepna = true;
+
     public Ksiazka() {
     }
 
-    @Ksiazka_id
-    @GeneratedValue
-    @Column(name = "ksiazka_id")
-    private Long ksiazka_id;
-
-    public Long getKsiazka_id() {
-        return ksiazka_id;
+    public Ksiazka(String isbn, String tytul, String autor, String wydawnictwo, 
+                   Integer rokWydania, String kategoria, String sygnatura) {
+        this.isbn = isbn;
+        this.tytul = tytul;
+        this.autor = autor;
+        this.wydawnictwo = wydawnictwo;
+        this.rokWydania = rokWydania;
+        this.kategoria = kategoria;
+        this.sygnatura = sygnatura;
+        this.dostepna = true;
     }
 
-    public void setKsiazka_id(Long ksiazka_id) {
-        this.ksiazka_id = ksiazka_id;
+    // Gettery i Settery
+    public Long getKsiazkaId() {
+        return ksiazkaId;
     }
 
-    @Isbn
-    @Column(name = "isbn")
-    private Long isbn;
+    public void setKsiazkaId(Long ksiazkaId) {
+        this.ksiazkaId = ksiazkaId;
+    }
 
-    public Long getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Long isbnd) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-
-    @Tytul
-    @Column(name = "tytul")
-    private String tytul;
 
     public String getTytul() {
         return tytul;
@@ -42,10 +75,6 @@ public class Ksiazka {
         this.tytul = tytul;
     }
 
-    @Autor
-    @Column(name = "autor")
-    private String autor;
-
     public String getAutor() {
         return autor;
     }
@@ -53,10 +82,6 @@ public class Ksiazka {
     public void setAutor(String autor) {
         this.autor = autor;
     }
-
-    @Wydawnictwo
-    @Column(name = "wydawnictwo")
-    private String wydawnictwo;
 
     public String getWydawnictwo() {
         return wydawnictwo;
@@ -66,21 +91,13 @@ public class Ksiazka {
         this.wydawnictwo = wydawnictwo;
     }
 
-    @Rok_wydania
-    @Column(name = "rok_wydania")
-    private Long rok_wydania;
-
-    public Long getRok_wydania() {
-        return rok_wydania;
+    public Integer getRokWydania() {
+        return rokWydania;
     }
 
-    public void setRok_wydania(Long rok_wydania) {
-        this.rok_wydania = rok_wydania;
+    public void setRokWydania(Integer rokWydania) {
+        this.rokWydania = rokWydania;
     }
-
-    @Kategoria
-    @Column(name = "kategoria")
-    private String kategoria;
 
     public String getKategoria() {
         return kategoria;
@@ -90,10 +107,6 @@ public class Ksiazka {
         this.kategoria = kategoria;
     }
 
-    @Sygnatura
-    @Column(name = "sygnatura")
-    private String sygnatura;
-
     public String getSygnatura() {
         return sygnatura;
     }
@@ -102,15 +115,11 @@ public class Ksiazka {
         this.sygnatura = sygnatura;
     }
 
-    @Dostępna
-    @Column(name = "dostepna")
-    private Bollean dostepna;
-
     public Boolean getDostepna() {
         return dostepna;
     }
 
-    public void setDostepna(Bollean dostepna) {
-    this.dostepna = dostepna;
+    public void setDostepna(Boolean dostepna) {
+        this.dostepna = dostepna;
     }
 }

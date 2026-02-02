@@ -1,117 +1,115 @@
+package com.wsis.sos.entity;
+
+import javax.persistence.*;
+import java.util.Date;
+
 @Entity
 @Table(name = "wypozyczenie")
 public class Wypozyczenie {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "wypozyczenie_id")
+    private Long wypozyczenieId;
+
+    @Column(name = "student_id")
+    private Long studentId;
+
+    @Column(name = "ksiazka_id")
+    private Long ksiazkaId;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_wypozyczenia")
+    private Date dataWypozyczenia;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_zwrotu")
+    private Date dataZwrotu;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "termin_zwrotu")
+    private Date terminZwrotu;
+
+    @Column(name = "status")
+    private String status; // "AKTYWNE", "ZWROCONE", "PRZETERMINOWANE"
+
+    @Column(name = "kara")
+    private Float kara = 0.0f;
+
     public Wypozyczenie() {
     }
 
-    @Wypozyczenie_id
-    @GeneratedValue
-    @Column(name = "wypozyczenie_id")
-    private Long wypozyczenieid;
-
-    public Long getWypozyczenie_id() {
-        return wypozyczenie_id;
+    public Wypozyczenie(Long studentId, Long ksiazkaId, Date terminZwrotu) {
+        this.studentId = studentId;
+        this.ksiazkaId = ksiazkaId;
+        this.dataWypozyczenia = new Date();
+        this.terminZwrotu = terminZwrotu;
+        this.status = "AKTYWNE";
+        this.kara = 0.0f;
     }
 
-    public void setWypozyczenie_id(Long wypozyczenie_id) {
-        this.wypozyczenie_id = wypozyczenie_id;
+    // Gettery i Settery
+    public Long getWypozyczenieId() {
+        return wypozyczenieId;
     }
 
-
-    @Student_id
-    @Column(name = "student_id")
-    private Long student_id;
-
-
-    public Long getStudent_id() {
-        return student_id;
+    public void setWypozyczenieId(Long wypozyczenieId) {
+        this.wypozyczenieId = wypozyczenieId;
     }
 
-    public void setStudent_id(Long student_id) {
-        this.student_id = student_id;
+    public Long getStudentId() {
+        return studentId;
     }
 
-    @Ksiazka_id
-    @GeneratedValue
-    @Column(name = "ksiazka_id")
-    private Long ksiazka_id;
-
-    public Long getKsiazka_id() {
-        return ksiazka_id;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
-    public void setKsiazka_id(Long ksiazka_id) {
-        this.ksiazka_id = ksiazka_id;
+    public Long getKsiazkaId() {
+        return ksiazkaId;
     }
 
-
-    @Data_wypozyczenia
-    @Column(name = "data_wypozyczenia")
-    Date data_wypozyczenia = new Date();
-
-    public Date getData_wystawienia() {
-        return data_wypozyczenia;
+    public void setKsiazkaId(Long ksiazkaId) {
+        this.ksiazkaId = ksiazkaId;
     }
 
-    public void setData_wypozyczenia(Date data_wypozyczenia) {
-        this.data_wypozyczenia = data_wypozyczenia;
+    public Date getDataWypozyczenia() {
+        return dataWypozyczenia;
     }
 
-
-    @Data_zwrotu
-    @Column(name = "data_zwrotu")
-    Date data_zwrotu = new Date();
-
-    public Date getData_zwrotu() {
-        return data_zwrotu;
+    public void setDataWypozyczenia(Date dataWypozyczenia) {
+        this.dataWypozyczenia = dataWypozyczenia;
     }
 
-    public void setData_zwrotu(Date data_zwrotu) {
-        this.data_zwrotu = data_zwrotu;
+    public Date getDataZwrotu() {
+        return dataZwrotu;
     }
 
-
-    @Termin_zwrotu
-    @Column(name = "termin_zwrotu")
-    Date termin_zwrotu = new Date();
-
-    public Date getTermin_zwrotu() {
-        return termin_zwrotu;
+    public void setDataZwrotu(Date dataZwrotu) {
+        this.dataZwrotu = dataZwrotu;
     }
 
-    public void setTermin_zwrotu(Date termin_zwrotu) {
-        this.termin_zwrotu = termin_zwrotu;
+    public Date getTerminZwrotu() {
+        return terminZwrotu;
     }
 
-
-    @Status
-    @Column(name = "status")
-    private String ststus;
+    public void setTerminZwrotu(Date terminZwrotu) {
+        this.terminZwrotu = terminZwrotu;
+    }
 
     public String getStatus() {
-        return ststus;
+        return status;
     }
 
-    public void setStstus(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
-
-
-    @Kara
-    @Column(name = "kara")
-    private float kara;
 
     public Float getKara() {
         return kara;
     }
 
-    public void setKara(float kara) {
+    public void setKara(Float kara) {
         this.kara = kara;
     }
-
-
-    //FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE,
-    //FOREIGN KEY (ksiazka_id) REFERENCES ksiazka(ksiazka_id) ON DELETE CASCADE
-
 }

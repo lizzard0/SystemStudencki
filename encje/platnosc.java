@@ -1,39 +1,56 @@
+package com.wsis.sos.entity;
+
+import javax.persistence.*;
+import java.util.Date;
+
 @Entity
 @Table(name = "platnosc")
 public class Platnosc {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "platnosc_id")
+    private Long platnoscId;
+
+    @Column(name = "faktura_id")
+    private Long fakturaId;
+
+    @Column(name = "kwota")
+    private Float kwota;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_platnosci")
+    private Date dataPlatnosci;
+
+    @Column(name = "identyfikator_transakcji", unique = true)
+    private String identyfikatorTransakcji;
+
     public Platnosc() {
     }
 
-    @Platnosc_id
-    @GeneratedValue
-    @Column(name = "platnosc_id")
-    private Long platnosc_id;
-
-    public Long getPlatnosc_id() {
-        return platnosc_id;
+    public Platnosc(Long fakturaId, Float kwota, String identyfikatorTransakcji) {
+        this.fakturaId = fakturaId;
+        this.kwota = kwota;
+        this.identyfikatorTransakcji = identyfikatorTransakcji;
+        this.dataPlatnosci = new Date();
     }
 
-    public void setPlatnosc_id(Long platnosc_id) {
-        this.platnosc_id = platnosc_id;
+    // Gettery i Settery
+    public Long getPlatnoscId() {
+        return platnoscId;
     }
 
-
-    @Faktura_id
-    @Column(name = "faktura_id")
-    private Long faktura_id;
-
-    public Long getFaktura_id() {
-        return faktura_id;
+    public void setPlatnoscId(Long platnoscId) {
+        this.platnoscId = platnoscId;
     }
 
-    public void setFaktura_id(Long faktura_id) {
-        this.faktura_id = faktura_id;
+    public Long getFakturaId() {
+        return fakturaId;
     }
 
-    @Kwota
-    @Column(name = "kwota")
-    private float kwota;
+    public void setFakturaId(Long fakturaId) {
+        this.fakturaId = fakturaId;
+    }
 
     public Float getKwota() {
         return kwota;
@@ -43,28 +60,19 @@ public class Platnosc {
         this.kwota = kwota;
     }
 
-    @Data_platnosci
-    @Column(name = "data_platnosci")
-    Date data_platnosci = new Date();
-
-    public Date getData_platnosci() {
-        return data_platnosci;
+    public Date getDataPlatnosci() {
+        return dataPlatnosci;
     }
 
-    public void setData_platnoscia(Date data_platnosci) {
-        this.data_platnosci = data_platnosci;
+    public void setDataPlatnosci(Date dataPlatnosci) {
+        this.dataPlatnosci = dataPlatnosci;
     }
 
-    @Identyfikator_transakcji
-    @Column(name = "identyfikator_transakcji")
-    private Long identyfikator_transakcji;
-
-    public Long getIdentyfikator_transakcji() {
-        return identyfikator_transakcji;
+    public String getIdentyfikatorTransakcji() {
+        return identyfikatorTransakcji;
     }
 
-    public void setIdentyfikator_transakcji(Long identyfikator_transakcji) {
-        this.identyfikator_transakcji = identyfikator_transakcji;
+    public void setIdentyfikatorTransakcji(String identyfikatorTransakcji) {
+        this.identyfikatorTransakcji = identyfikatorTransakcji;
     }
 }
-

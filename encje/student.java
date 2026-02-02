@@ -1,56 +1,97 @@
+package com.wsis.sos.entity;
+
+import javax.persistence.*;
+import java.util.Date;
+
 @Entity
 @Table(name = "student")
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
+    private Long studentId;
+
+    @Column(name = "uzytkownik_id")
+    private Long uzytkownikId;
+
+    @Column(name = "numer_albumu", unique = true)
+    private String numerAlbumu;
+
+    @Column(name = "imie")
+    private String imie;
+
+    @Column(name = "nazwisko")
+    private String nazwisko;
+
+    @Column(name = "pesel", unique = true, length = 11)
+    private String pesel;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "data_urodzenia")
+    private Date dataUrodzenia;
+
+    @Column(name = "plec", length = 1)
+    private Character plec; // 'M' lub 'K'
+
+    @Column(name = "adres")
+    private String adres;
+
+    @Column(name = "telefon")
+    private String telefon;
+
+    @Column(name = "email_uczelniany", unique = true)
+    private String emailUczelniany;
+
+    @Column(name = "kierunek_id")
+    private Long kierunekId;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "rok_rozpoczecia")
+    private Date rokRozpoczecia;
+
+    @Column(name = "aktywny")
+    private Boolean aktywny = true;
+
     public Student() {
     }
 
-    @Student_id
-    @GeneratedValue
-    @Column(name = "student_id")
-    private Long student_id;
-
-
-    public Long getStudent_id() {
-        return student_id;
+    public Student(String numerAlbumu, String imie, String nazwisko, String pesel, 
+                   Date dataUrodzenia, Character plec, String emailUczelniany) {
+        this.numerAlbumu = numerAlbumu;
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.pesel = pesel;
+        this.dataUrodzenia = dataUrodzenia;
+        this.plec = plec;
+        this.emailUczelniany = emailUczelniany;
+        this.aktywny = true;
     }
 
-    public void setStudent_id(Long student_id) {
-        this.student_id = student_id;
+    // Gettery i Settery
+    public Long getStudentId() {
+        return studentId;
     }
 
-    
-    @Urzytkownik_id
-    @Column(name = "urzytkownik_id")
-    private Long urzytkownik_id;
-
-
-    public Long getUrzytkownik_id() {
-        return urzytkownik_id;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
-    public void setUrzytkownik_id(Long urzytkownik_id) {
-        this.urzytkownik_id = urzytkownik_id;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-
-    @Numer_albumu
-    @Column(name = "numer_albumu")
-    private Long numer_albumu;
-
-
-    public Long getNumer_albumu() {
-        return numer_albumu;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
-    public void setNumer_albumu(Long numer_albumu) {
-        this.numer_albumu = numer_albumu;
+    public String getNumerAlbumu() {
+        return numerAlbumu;
     }
 
-
-    @Imie
-    @Column(name = "imie")
-    private String imie;
+    public void setNumerAlbumu(String numerAlbumu) {
+        this.numerAlbumu = numerAlbumu;
+    }
 
     public String getImie() {
         return imie;
@@ -60,11 +101,6 @@ public class Student {
         this.imie = imie;
     }
 
-
-    @Nazwisko
-    @Column(name = "nazwisko")
-    private String nazwisko;
-
     public String getNazwisko() {
         return nazwisko;
     }
@@ -73,38 +109,29 @@ public class Student {
         this.nazwisko = nazwisko;
     }
 
-
-    @Pesel
-    @Column(name = "pesel")
-    private Long pesel;
-
-
-    public Long getPesel() {
+    public String getPesel() {
         return pesel;
     }
 
-    public void setPesel(Long pesel) {
+    public void setPesel(String pesel) {
         this.pesel = pesel;
     }
 
-
-    @Data_urodzenia
-    @Column(name = "data_urodzenia")
-    Date data_urodzenia = new Date();
-
-    public Date getData_urodzenia() {
-        return data_urodzenia;
+    public Date getDataUrodzenia() {
+        return dataUrodzenia;
     }
 
-    public void setData_urodzenia(Date data_urodzenia) {
-        this.data_urodzenia = data_urodzenia;
+    public void setDataUrodzenia(Date dataUrodzenia) {
+        this.dataUrodzenia = dataUrodzenia;
     }
 
-    //plec CHAR(1) CHECK (plec IN ('M', 'K')),
+    public Character getPlec() {
+        return plec;
+    }
 
-    @Adres
-    @Column(name = "adres")
-    private String adres;
+    public void setPlec(Character plec) {
+        this.plec = plec;
+    }
 
     public String getAdres() {
         return adres;
@@ -114,59 +141,43 @@ public class Student {
         this.adres = adres;
     }
 
-
-    @Telefon
-    @Column(name = "telefon")
-    private Long telefon;
-
-
-    public Long getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(Long telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
-
-    @Email_uczelniany
-    @Column(name = "email_uczelniany")
-    private String email_uczelniany;
-
-    public String getEmail_uczelniany() {
-        return email_uczelniany;
+    public String getEmailUczelniany() {
+        return emailUczelniany;
     }
 
-    public void setEmail_uczelniany(String email_uczelniany) {
-        this.email_uczelniany = email_uczelniany;
+    public void setEmailUczelniany(String emailUczelniany) {
+        this.emailUczelniany = emailUczelniany;
     }
 
-
-    @Kierunek_id
-    @Column(name = "kierunek_id")
-    private Long kierunek_id;
-
-
-    public Long getKierunek_id() {
-        return kierunek_id;
+    public Long getKierunekId() {
+        return kierunekId;
     }
 
-    public void setKierunek_id(Long kierunek_id) {
-        this.kierunek_id = kierunek_id;
+    public void setKierunekId(Long kierunekId) {
+        this.kierunekId = kierunekId;
     }
 
-
-    @Rok_rozpoczecia
-    @Column(name = "rok_rozpoczecia")
-    Date rok_rozpoczecia = new Date();
-
-    public Date getRok_rozpoczecia() {
-        return rok_rozpoczecia;
+    public Date getRokRozpoczecia() {
+        return rokRozpoczecia;
     }
 
-    public void setRok_rozpoczecia(Date rok_rozpoczecia) {
-        this.rok_rozpoczecia = rok_rozpoczecia;
+    public void setRokRozpoczecia(Date rokRozpoczecia) {
+        this.rokRozpoczecia = rokRozpoczecia;
     }
-    
-    //FOREIGN KEY (uzytkownik_id) REFERENCES uzytkownik(uzytkownik_id) ON DELETE CASCADE
+
+    public Boolean getAktywny() {
+        return aktywny;
+    }
+
+    public void setAktywny(Boolean aktywny) {
+        this.aktywny = aktywny;
+    }
 }
