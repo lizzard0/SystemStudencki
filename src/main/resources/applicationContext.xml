@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- Włączenie autowiringu przez adnotacje -->
+    <context:annotation-config/>
+    
+    <!-- Skanowanie komponentów w pakiecie com.wsis.sos -->
+    <context:component-scan base-package="com.wsis.sos"/>
+    
+    <!-- Konfiguracja transakcji -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <!-- Bean EntityManagerFactory -->
+    <bean id="entityManagerFactory" 
+          class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="sosPU"/>
+    </bean>
+    
+    <!-- Bean TransactionManager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    
+    <!-- Deklaracja beanów DAO (opcjonalne, bo używamy @Repository) -->
+    <!-- Te deklaracje są zgodne z wymaganiami z laboratorium -->
+    <bean id="studentDao" class="com.wsis.sos.dao.impl.StudentDaoImpl"/>
+    <bean id="przedmiotDao" class="com.wsis.sos.dao.impl.PrzedmiotDaoImpl"/>
+    <bean id="zapisDao" class="com.wsis.sos.dao.impl.ZapisDaoImpl"/>
+    <bean id="fakturaDao" class="com.wsis.sos.dao.impl.FakturaDaoImpl"/>
+    <bean id="ksiazkaDao" class="com.wsis.sos.dao.impl.KsiazkaDaoImpl"/>
+    <bean id="wypozyczenieDao" class="com.wsis.sos.dao.impl.WypozyczenieDaoImpl"/>
+    <bean id="ocenaKoncowaDao" class="com.wsis.sos.dao.impl.OcenaKoncowaDaoImpl"/>
+    <bean id="ocenaCzastkowaDao" class="com.wsis.sos.dao.impl.OcenaCzastkowaDaoImpl"/>
+    <bean id="platnoscDao" class="com.wsis.sos.dao.impl.PlatnoscDaoImpl"/>
+    <bean id="kontoStudentaDao" class="com.wsis.sos.dao.impl.KontoStudentaDaoImpl"/>
+
+</beans>
